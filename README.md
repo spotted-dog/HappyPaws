@@ -35,10 +35,18 @@ the key features to look for at this time:
 ### Dog Breeds
 - List / Detail view with list item navigation for dog breeds
 
-### Unit Testing
+### Testing
+You can turn on code coverage to build and generate a report on code coverage. This project is setup
+to run both Unit and UI testing.
+
+#### Unit Testing
 - API testing (note: requires a valid API key to successfully pass)
 
-### UI Testing
+#### UI Testing
+- SplashScreen
+- Welcome
+- Dogs
+- Breeds
 
 ## Use
 In order to run this application, you will need to get a developer API key which is used
