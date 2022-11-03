@@ -10,7 +10,7 @@ Features here are continually evolving as my knowledge and experience evolve. He
 the key features to look for at this time:
 
 ### General
-- Use of tab view that remembers which tab you were last on when you left the application.
+- Use of tab view and starts with the Dog House tab (second tab) at startup
 - CoreData for long term persistence of Canines and Canine Breeds
 - Modern concurrency
 - Project structure
@@ -20,6 +20,10 @@ the key features to look for at this time:
   - Then there are groups that represent feature specific capabilites. These groups hold views and models that are specific the feature
 - Static Code Analysis
   - Added [SwiftLint](https://github.com/realm/SwiftLint) to the project
+
+### SplashScreen
+- Modern Concurrency implementation
+- SwiftUI Animation
 
 ### Welcome
 - Welcome view that welcomes the app user
