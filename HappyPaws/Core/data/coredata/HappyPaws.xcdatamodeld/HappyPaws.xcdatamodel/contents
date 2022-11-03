@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21G115" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Dog" representedClassName="Dog" syncable="YES" codeGenerationType="class">
+    <entity name="Canine" representedClassName="Canine" syncable="YES" codeGenerationType="class">
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="favoriteToy" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="isFavorite" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="name" attributeType="String"/>
-        <relationship name="breed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="DogBreed" inverseName="dogs" inverseEntity="DogBreed"/>
+        <relationship name="caninebreed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CanineBreed" inverseName="canines" inverseEntity="CanineBreed"/>
     </entity>
-    <entity name="DogBreed" representedClassName="DogBreed" syncable="YES" codeGenerationType="class">
+    <entity name="CanineBreed" representedClassName="CanineBreed" syncable="YES" codeGenerationType="class">
         <attribute name="breedFor" optional="YES" attributeType="String"/>
         <attribute name="breedGroup" optional="YES" attributeType="String"/>
         <attribute name="countryCode" optional="YES" attributeType="String"/>
@@ -17,10 +18,10 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="origin" optional="YES" attributeType="String"/>
         <attribute name="temperament" optional="YES" attributeType="String"/>
-        <relationship name="dogs" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Dog" inverseName="breed" inverseEntity="Dog"/>
+        <relationship name="canines" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Canine" inverseName="caninebreed" inverseEntity="Canine"/>
     </entity>
     <elements>
-        <element name="DogBreed" positionX="358.49609375" positionY="52.60546875" width="128" height="178"/>
-        <element name="Dog" positionX="-42.90234375" positionY="86.84375" width="143.3671875" height="133"/>
+        <element name="Canine" positionX="-42.90234375" positionY="86.84375" width="143.3671875" height="134"/>
+        <element name="CanineBreed" positionX="358.49609375" positionY="52.60546875" width="128" height="164"/>
     </elements>
 </model>

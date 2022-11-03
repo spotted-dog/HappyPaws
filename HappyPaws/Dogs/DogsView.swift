@@ -11,10 +11,12 @@ import CoreData
 struct DogsView: View {
   @Environment(\.managedObjectContext) private var viewContext
   
+  var petsStore: PetStore
+  
   @FetchRequest(
-    sortDescriptors: [NSSortDescriptor(keyPath: \Dog.name, ascending: true)],
+    sortDescriptors: [NSSortDescriptor(keyPath: \Canine.name, ascending: true)],
     animation: .default)
-  private var dogs: FetchedResults<Dog>
+  private var dogs: FetchedResults<Canine>
   
   @State private var selectedTab = 1
   
@@ -73,7 +75,7 @@ struct DogsView: View {
   
   private func addDog() {
     withAnimation {
-      let newDog = Dog(context: viewContext)
+      let newDog = Canine(context: viewContext)
       newDog.id = UUID()
       newDog.name = "Haps New Dog"
       
@@ -106,6 +108,6 @@ struct DogsView: View {
 
 struct DogsView_Previews: PreviewProvider {
   static var previews: some View {
-    DogsView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    DogsView(petsStore: PetStore.sample).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
   }
 }

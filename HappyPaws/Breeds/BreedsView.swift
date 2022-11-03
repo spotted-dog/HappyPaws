@@ -12,9 +12,9 @@ struct BreedsView: View {
   @Environment(\.managedObjectContext) private var viewContext
   
   @FetchRequest(
-    sortDescriptors: [NSSortDescriptor(keyPath: \DogBreed.name, ascending: true)],
+    sortDescriptors: [NSSortDescriptor(keyPath: \CanineBreed.name, ascending: true)],
     animation: .default)
-  private var dogBreeds: FetchedResults<DogBreed>
+  private var dogBreeds: FetchedResults<CanineBreed>
   
   var body: some View {
     NavigationView {
@@ -45,7 +45,7 @@ struct BreedsView: View {
   
   private func addBreed() {
     withAnimation {
-      let newDogBreed = DogBreed(context: viewContext)
+      let newDogBreed = CanineBreed(context: viewContext)
       newDogBreed.id = 101
       newDogBreed.name = "Haps New Breed"
       
