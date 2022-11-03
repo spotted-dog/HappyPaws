@@ -8,24 +8,25 @@
 import SwiftUI
 
 struct DogDetailView: View {
-  var dog: Dog
+  @ObservedObject var dog: Dog
 
   var body: some View {
     let cornerRadius: CGFloat = 10
+    let imageDimension: CGFloat = 200
 
-    return HStack(alignment: .top) {
-      VStack {
+    return VStack(alignment: .leading) {
+      HStack {
         if let dogImage = dog.image {
           Image(dogImage)
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .frame(width: 120, height: 120)
+            .frame(width: imageDimension, height: imageDimension)
             .cornerRadius(cornerRadius)
         } else {
           Image(systemName: Constants.SFSymbols.pawPrintFill)
             .resizable()
             .aspectRatio(contentMode: .fill)
-            .frame(width: 120, height: 120)
+            .frame(width: imageDimension, height: imageDimension)
         }
 
         // swiftlint:disable multiple_closures_with_trailing_closure
@@ -49,23 +50,20 @@ struct DogDetailView: View {
 
       VStack(alignment: .leading) {
         Text("Name: \(dog.name)")
-          .font(.system(.headline, design: .rounded))
-          .fontWeight(.black)
+          .font(.system(.title))
           .foregroundColor(.gray)
           .padding(.vertical, 4)
           .accessibilityIdentifier("PetDetailsViewName")
 
         Text("Date of Birth: \(dog.getDateOfBirthString())")
-          .font(.system(.headline, design: .rounded))
-          .fontWeight(.black)
+          .font(.system(.headline))
           .foregroundColor(.gray)
           .padding(.vertical, 4)
           .accessibilityIdentifier("PetDetailsViewDOB")
 
         if let favoriteToy = dog.favoriteToy {
           Text("Favorite Toy: \(favoriteToy)")
-            .font(.system(.headline, design: .rounded))
-            .fontWeight(.black)
+            .font(.system(.headline))
             .foregroundColor(.gray)
             .padding(.vertical, 4)
         }
