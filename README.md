@@ -36,6 +36,7 @@ the key features to look for at this time:
 - List / Detail view with list item navigation for dog breeds
 
 ### Unit Testing
+- API testing (note: requires a valid API key to successfully pass)
 
 ### UI Testing
 
