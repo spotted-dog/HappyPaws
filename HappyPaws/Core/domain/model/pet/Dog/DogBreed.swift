@@ -16,7 +16,7 @@ struct DogBreed: Identifiable, Comparable, Codable {
   let countryCode: String?
   let breedGroup: String?
   let breedFor: String?
-  
+
   private enum CodingKeys: String, CodingKey {
     case id
     case name
@@ -27,11 +27,11 @@ struct DogBreed: Identifiable, Comparable, Codable {
     case breedGroup = "breed_group"
     case breedFor = "bread_for"
   }
-  
+
   static func == (lhs: DogBreed, rhs: DogBreed) -> Bool {
     lhs.id == rhs.id
   }
-  
+
   static func < (lhs: DogBreed, rhs: DogBreed) -> Bool {
     lhs.name < rhs.name
   }

@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct HappyPawsApp: App {
   let persistenceController = PersistenceController.shared
-  
+
   var body: some Scene {
     WindowGroup {
       DogsView(petStore: PetStore.sample)

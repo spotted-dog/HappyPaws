@@ -9,10 +9,10 @@ import SwiftUI
 
 struct DogListRow: View {
   var dog: Dog
-  
+
   var body: some View {
     let frameDimension: CGFloat = 30
-    
+
     HStack(alignment: .center) {
       if let dogImage = dog.image {
         Image(dogImage)
@@ -25,7 +25,7 @@ struct DogListRow: View {
           .aspectRatio(contentMode: .fit)
           .frame(width: frameDimension, height: frameDimension)
       }
-      
+
       Text(dog.name)
         .font(.system(.headline))
         .foregroundColor(.gray)

@@ -10,9 +10,9 @@ import Foundation
 class PetStore {
   private(set) var dogs: [Dog] = []
   private(set) var dogBreeds: [DogBreed] = []
-  
+
   static let shared = PetStore()
-  
+
   private init() {
     Task {
       dogBreeds = try await PersistenceController.getDogBreeds()
@@ -21,16 +21,16 @@ class PetStore {
         dogBreeds = try await DogAPI.getAllDogBreeds()
         try await PersistenceController.saveCanineBreeds(from: dogBreeds)
       }
-      
+
       dogs = try await PersistenceController.getDogs()
-      
+
       if dogs.isEmpty {
         dogs = PetStore.createSampleDogs()
         try await PersistenceController.saveCanines(from: dogs)
       }
     }
   }
-  
+
   func add(dog: Dog) {
     dogs.append(dog)
   }
@@ -39,7 +39,7 @@ class PetStore {
     guard let index = dogs.firstIndex(of: dog) else { return }
     dogs.remove(at: index)
   }
-  
+
   func add(dogBreed: DogBreed) {
     dogBreeds.append(dogBreed)
   }
@@ -48,17 +48,16 @@ class PetStore {
     guard let index = dogBreeds.firstIndex(of: dogBreed) else { return }
     dogBreeds.remove(at: index)
   }
-  
+
   func geDogBy(name: String) -> Dog? {
     let matchingDogs = dogs.filter({$0.name == name})
     guard let dog = matchingDogs.first else {
       return nil
     }
-    
+
     return dog
   }
 }
-
 
 #if DEBUG
 extension PetStore {
@@ -67,14 +66,14 @@ extension PetStore {
     let dogs = PetStore.createSampleDogs()
     let store = PetStore.shared
     store.dogs = dogs
-    
+
     return store
   }()
-  
+
   static func createSampleDogs() -> [Dog] {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-mm-dd"
-    
+
     // Create some dogs
     let pongo = Dog(name: "Pongo",
                     dateOfBirth: formatter.date(from: "2019-02-11") ?? Date(),
@@ -103,7 +102,7 @@ extension PetStore {
     // Make a couple of the pets favorites
     pongo.isFavorite = true
     dipstick.isFavorite = true
-    
+
     return [pongo, purdy, dipstick, jewel, dottie, bravo]
   }
 }

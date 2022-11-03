@@ -9,10 +9,10 @@ import SwiftUI
 
 struct DogDetailView: View {
   var dog: Dog
-  
+
   var body: some View {
     let cornerRadius: CGFloat = 10
-    
+
     return HStack(alignment: .top) {
       VStack {
         if let dogImage = dog.image {
@@ -27,7 +27,7 @@ struct DogDetailView: View {
             .aspectRatio(contentMode: .fill)
             .frame(width: 120, height: 120)
         }
-        
+
         // swiftlint:disable multiple_closures_with_trailing_closure
         Button(action: {
           self.dog.isFavorite.toggle()
@@ -46,7 +46,7 @@ struct DogDetailView: View {
         .frame(width: 120, alignment: .leading)
         .accessibilityIdentifier("FavoriteButton")
       }
-      
+
       VStack(alignment: .leading) {
         Text("Name: \(dog.name)")
           .font(.system(.headline, design: .rounded))
@@ -54,14 +54,14 @@ struct DogDetailView: View {
           .foregroundColor(.gray)
           .padding(.vertical, 4)
           .accessibilityIdentifier("PetDetailsViewName")
-        
+
         Text("Date of Birth: \(dog.getDateOfBirthString())")
           .font(.system(.headline, design: .rounded))
           .fontWeight(.black)
           .foregroundColor(.gray)
           .padding(.vertical, 4)
           .accessibilityIdentifier("PetDetailsViewDOB")
-        
+
         if let favoriteToy = dog.favoriteToy {
           Text("Favorite Toy: \(favoriteToy)")
             .font(.system(.headline, design: .rounded))

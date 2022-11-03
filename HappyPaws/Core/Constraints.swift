@@ -14,11 +14,11 @@ enum Constants {
     "all of you pet's information in one place. " +
     "Information like expenses, their friends and even their favorite images."
   }
-  
+
   enum Images {
     public static let happyPawsLogo = "HappyPaws_Logo"
   }
-  
+
   enum SFSymbols {
     public static let pawPrintCircle = "pawprint.circle"
     public static let pawPrintFill = "pawprint.fill"

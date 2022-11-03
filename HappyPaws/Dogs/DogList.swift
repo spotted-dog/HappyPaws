@@ -9,9 +9,9 @@ import SwiftUI
 
 struct DogList: View {
   @Environment(\.managedObjectContext) private var viewContext
-  
+
   var dogs: [Dog]
-  
+
   var body: some View {
     let dogsSorted = dogs.sorted(by: <)
     List {
@@ -34,24 +34,26 @@ struct DogList: View {
       }
     }
   }
-  
+
   private func addDog() {
     withAnimation {
       let newDog = Canine(context: viewContext)
       newDog.id = UUID()
       newDog.name = "Haps New Dog"
-      
+
       do {
         try viewContext.save()
       } catch {
         // Replace this implementation with code to handle the error appropriately.
-        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        // fatalError() causes the application to generate a crash log and terminate.
+        // You should not use this function in a shipping application, although it
+        // may be useful during development.
         let nsError = error as NSError
         fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
       }
     }
   }
-  
+
   private func deleteDogs(offsets: IndexSet) {
 //    var canines = [Canine]()
 //    
@@ -67,7 +69,9 @@ struct DogList: View {
 //        try viewContext.save()
 //      } catch {
 //        // Replace this implementation with code to handle the error appropriately.
-//        // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+          // fatalError() causes the application to generate a crash log and terminate.
+          // You should not use this function in a shipping application, although it
+          // may be useful during development.
 //        let nsError = error as NSError
 //        fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
 //      }
