@@ -18,9 +18,12 @@ the key features to look for at this time:
   - data holds more pure data type components for things like CoreData and API
   - domain holds models that contain business rules and properties but still used throughout the application
   - Then there are groups that represent feature specific capabilites. These groups hold views and models that are specific the feature
+- Static Code Analysis
+  - Added [SwiftLint](https://github.com/realm/SwiftLint) to the project
 
 ### Welcome
-- Welcome view that demonstrates the use of sheets to display additional information 
+- Welcome view that welcomes the app user
+- Sheet to give onboarding details and app feature details
 
 ### Dogs
 - List / Detail view with list item navigation for dogs
