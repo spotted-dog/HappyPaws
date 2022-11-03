@@ -11,7 +11,7 @@ import CoreData
 struct DogsView: View {
   @Environment(\.managedObjectContext) private var viewContext
   
-  var petsStore: PetStore
+  var petStore: PetStore
   
   @FetchRequest(
     sortDescriptors: [NSSortDescriptor(keyPath: \Canine.name, ascending: true)],
@@ -31,27 +31,7 @@ struct DogsView: View {
         .tag(0)
       
       NavigationView {
-        List {
-          ForEach(dogs) { dog in
-            NavigationLink {
-              Text("\(dog.name!)")
-            } label: {
-              Text(dog.name!)
-            }
-          }
-          .onDelete(perform: deleteDogs)
-        }
-        .navigationBarTitle("All Pets")
-        .toolbar {
-          ToolbarItem(placement: .navigationBarTrailing) {
-            EditButton()
-          }
-          ToolbarItem {
-            Button(action: addDog) {
-              Label("Add Dog", systemImage: "plus")
-            }
-          }
-        }
+        DogList(dogs: petStore.dogs)
         Text("Select a Dog")
       }
       .tabItem {
@@ -108,6 +88,6 @@ struct DogsView: View {
 
 struct DogsView_Previews: PreviewProvider {
   static var previews: some View {
-    DogsView(petsStore: PetStore.sample).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    DogsView(petStore: PetStore.sample).environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
   }
 }

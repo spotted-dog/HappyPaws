@@ -24,6 +24,8 @@ struct BreedsView: View {
             Text("\(dogBreed.name!)")
           } label: {
             Text(dogBreed.name!)
+              .font(.system(.headline))
+              .foregroundColor(.gray)
           }
         }
         .onDelete(perform: deleteBreeds)

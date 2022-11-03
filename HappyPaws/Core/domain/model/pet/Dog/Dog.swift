@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class Dog: Identifiable, Comparable, ObservableObject {
   var id = UUID()
@@ -54,5 +55,17 @@ class Dog: Identifiable, Comparable, ObservableObject {
     formatter.dateFormat = "yyyy-mm-dd"
     
     return formatter.string(from: self.dateOfBirth)
+  }
+  
+  func createCanine(from dog: Dog, context: NSManagedObjectContext) -> Canine {
+    let canine = Canine(context: context)
+    canine.id = dog.id
+    canine.name = dog.name
+    canine.dateOfBirth = dog.dateOfBirth
+    canine.isFavorite = dog.isFavorite
+    canine.favoriteToy = dog.favoriteToy
+    canine.image = dog.image
+    
+    return canine
   }
 }

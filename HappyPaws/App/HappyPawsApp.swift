@@ -13,7 +13,7 @@ struct HappyPawsApp: App {
   
   var body: some Scene {
     WindowGroup {
-      DogsView(petsStore: PetStore.sample)
+      DogsView(petStore: PetStore.sample)
         .environment(\.managedObjectContext, persistenceController.container.viewContext)
     }
   }
