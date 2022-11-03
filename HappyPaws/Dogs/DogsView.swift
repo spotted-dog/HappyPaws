@@ -42,7 +42,7 @@ struct DogsView: View {
       }
       .tag(1)
 
-      BreedsView()
+      BreedsView(breeds: petStore.dogBreeds)
         .tabItem {
           Image(systemName: "pawprint.fill")
           Text("Breeds")

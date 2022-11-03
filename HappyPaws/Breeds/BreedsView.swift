@@ -16,31 +16,11 @@ struct BreedsView: View {
     animation: .default)
   private var dogBreeds: FetchedResults<CanineBreed>
 
+  var breeds: [DogBreed]
+
   var body: some View {
     NavigationView {
-      List {
-        ForEach(dogBreeds) { dogBreed in
-          NavigationLink {
-            Text("\(dogBreed.name!)")
-          } label: {
-            Text(dogBreed.name!)
-              .font(.system(.headline))
-              .foregroundColor(.gray)
-          }
-        }
-        .onDelete(perform: deleteBreeds)
-      }
-      .navigationBarTitle("All Breeds")
-      .toolbar {
-        ToolbarItem(placement: .navigationBarTrailing) {
-          EditButton()
-        }
-        ToolbarItem {
-          Button(action: addBreed) {
-            Label("Add Breed", systemImage: "plus")
-          }
-        }
-      }
+      BreedList(breeds: breeds)
       Text("Select a Breed")
     }
   }
@@ -91,6 +71,8 @@ private let itemFormatter: DateFormatter = {
 
 struct BreedsView_Previews: PreviewProvider {
   static var previews: some View {
-    BreedsView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+    BreedsView(breeds: PetStore.shared.dogBreeds)
+      .environment(\.managedObjectContext,
+                    PersistenceController.preview.container.viewContext)
   }
 }
