@@ -31,6 +31,7 @@ the key features to look for at this time:
 
 ### Dogs
 - List / Detail view with list item navigation for dogs
+- Add new dog to the app via a toolbar plus that displays a sheet for capturing the new dog data. Dog is stored in CoreData as well as in the domain
 
 ### Dog Breeds
 - List / Detail view with list item navigation for dog breeds
